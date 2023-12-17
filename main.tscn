@@ -1,0 +1,82 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdkx2nviqlyb5"]
+
+[ext_resource type="Script" path="res://main_ui.gd" id="1_riunf"]
+
+[node name="main" type="CanvasLayer"]
+script = ExtResource("1_riunf")
+
+[node name="tabs" type="TabContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ImageConverter" type="VBoxContainer" parent="tabs"]
+layout_mode = 2
+
+[node name="Input" type="HBoxContainer" parent="tabs/ImageConverter"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="i_directory_input" type="LineEdit" parent="tabs/ImageConverter/Input"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "C:\\Users\\John\\Desktop\\npc\\hand\\attack"
+placeholder_text = "Enter Directory Here"
+
+[node name="i_directory_accept" type="Button" parent="tabs/ImageConverter/Input"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Add Directory"
+
+[node name="i_directory_removeall" type="Button" parent="tabs/ImageConverter/Input"]
+layout_mode = 2
+text = "Remove All"
+
+[node name="i_directory_list" type="ScrollContainer" parent="tabs/ImageConverter/Input"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="directory_list_container" type="VBoxContainer" parent="tabs/ImageConverter/Input/i_directory_list"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Filler" type="ColorRect" parent="tabs/ImageConverter"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Output" type="HBoxContainer" parent="tabs/ImageConverter"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="o_directory_input" type="LineEdit" parent="tabs/ImageConverter/Output"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "C:\\Users\\John\\Desktop\\output"
+placeholder_text = "Enter Directory Here"
+
+[node name="o_directory_set" type="Button" parent="tabs/ImageConverter/Output"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Set Directory"
+
+[node name="o_directory_info" type="VBoxContainer" parent="tabs/ImageConverter/Output"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="label" type="Label" parent="tabs/ImageConverter/Output/o_directory_info"]
+layout_mode = 2
+text = "Output Directory:"
+
+[node name="o_directory_label" type="Label" parent="tabs/ImageConverter/Output/o_directory_info"]
+layout_mode = 2
+
+[node name="Finalize" type="HBoxContainer" parent="tabs/ImageConverter"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="finalize_button" type="Button" parent="tabs/ImageConverter/Finalize"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Finalize!"
