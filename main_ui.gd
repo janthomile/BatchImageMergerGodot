@@ -18,6 +18,12 @@ extends CanvasLayer
 
 @onready var finalize_button = $tabs/ImageConverter/Finalize/finalize_button
 
+@onready var use_folder_checkbox = $tabs/ImageConverter/Settings/folder_name
+
+@onready var resize_checkbox = $tabs/ImageConverter/Settings/Resize/size_checkbox
+@onready var resize_text = $tabs/ImageConverter/Settings/Resize/size_input
+@onready var resize_value = $tabs/ImageConverter/Settings/Resize/size_value
+
 var input_directories : Array
 
 func get_window_vec():
@@ -33,11 +39,15 @@ func is_valid_input(_text : String):
 
 func add_input_directory():
 	var input_text : String = i_input_text.text
-	if is_valid_input(input_text) == false:
-		print("bad!")
-		return
-	print("good!")
-	directory_list.add_child(DirectoryItem.new(input_text))
+	var lines : Array = input_text.split("\n", false)
+	print(lines)
+#	return
+	for line in lines:
+		if is_valid_input(line) == false:
+			print("bad!")
+			return
+		print("good!")
+		directory_list.add_child(DirectoryItem.new(line))
 
 func set_output_directory():
 	var input_text : String = o_input_text.text
@@ -76,16 +86,32 @@ func finalize_pressed():
 	print("finalize pressed!")
 	ImageUtil.handle_image_merging(get_input_directories_string(), get_output_directory())
 
+func set_size_checkmark(state):
+	print("use resize toggled: %s" % state)
+	ImageUtil.use_resize = state
+
+func set_folder_name_checkmark(state):
+	print("use folder toggled: %s" % state)
+	ImageUtil.use_folder_name = state
+
+func set_resize_input(text : String):
+	var num = text.to_int()
+	if num < 1 or num > 100 or num == 0:
+		print("invalid resize scale")
+		return
+	resize_value.text = "Current Size Ratio: %s%%" % text
+	ImageUtil.resize_ratio = num * 0.01
+
 func connect_buttons():
 	i_input_accept.connect("pressed", input_accept_button)
 	o_input_accept.connect("pressed", output_accept_button)
 	i_input_removeall.connect("pressed", input_remove_button)
 	finalize_button.connect("pressed", finalize_pressed)
 
+	use_folder_checkbox.connect("toggled", set_folder_name_checkmark)
+	resize_checkbox.connect("toggled", set_size_checkmark)
+	resize_text.connect("text_submitted", set_resize_input)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	connect_buttons()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
