@@ -18,23 +18,23 @@ var resize_value
 var input_directories : Array
 
 func get_nodes():
-	i_input_text = main_ui.get_node("tabs/ImageConverter/Input/i_directory_input")
-	i_input_accept = main_ui.get_node("tabs/ImageConverter/Input/i_directory_accept")
-	i_input_removeall = main_ui.get_node("tabs/ImageConverter/Input/i_directory_removeall")
+	i_input_text = main_ui.get_node("tabs/BatchImageMerger/Input/i_directory_input")
+	i_input_accept = main_ui.get_node("tabs/BatchImageMerger/Input/i_directory_accept")
+	i_input_removeall = main_ui.get_node("tabs/BatchImageMerger/Input/i_directory_removeall")
 
-	o_input_text = main_ui.get_node("tabs/ImageConverter/Output/o_directory_input")
-	o_input_accept = main_ui.get_node("tabs/ImageConverter/Output/o_directory_set")
-	o_output_label = main_ui.get_node("tabs/ImageConverter/Output/o_directory_info/o_directory_label")
+	o_input_text = main_ui.get_node("tabs/BatchImageMerger/Output/o_directory_input")
+	o_input_accept = main_ui.get_node("tabs/BatchImageMerger/Output/o_directory_set")
+	o_output_label = main_ui.get_node("tabs/BatchImageMerger/Output/o_directory_info/o_directory_label")
 
-	directory_list = main_ui.get_node("tabs/ImageConverter/Input/i_directory_list/directory_list_container")
+	directory_list = main_ui.get_node("tabs/BatchImageMerger/Input/i_directory_list/directory_list_container")
 
-	finalize_button = main_ui.get_node("tabs/ImageConverter/Finalize/finalize_button")
+	finalize_button = main_ui.get_node("tabs/BatchImageMerger/Finalize/finalize_button")
 
-	use_folder_checkbox = main_ui.get_node("tabs/ImageConverter/Settings/folder_name")
+	use_folder_checkbox = main_ui.get_node("tabs/BatchImageMerger/Settings/folder_name")
 
-	resize_checkbox = main_ui.get_node("tabs/ImageConverter/Settings/Resize/size_checkbox")
-	resize_text = main_ui.get_node("tabs/ImageConverter/Settings/Resize/size_input")
-	resize_value = main_ui.get_node("tabs/ImageConverter/Settings/Resize/size_value")
+	resize_checkbox = main_ui.get_node("tabs/BatchImageMerger/Settings/Resize/size_checkbox")
+	resize_text = main_ui.get_node("tabs/BatchImageMerger/Settings/Resize/size_input")
+	resize_value = main_ui.get_node("tabs/BatchImageMerger/Settings/Resize/size_value")
 
 func connect_accept_inputs():
 	pass

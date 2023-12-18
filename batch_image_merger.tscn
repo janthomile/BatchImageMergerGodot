@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://frnonb6tduk7"]
+
+[node name="BatchImageMerger" type="VBoxContainer"]
+
+[node name="Input" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="i_directory_input" type="TextEdit" parent="Input"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Enter Input Directories Here, Separated by New Lines"
+wrap_mode = 1
+
+[node name="i_directory_accept" type="Button" parent="Input"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Add Directory"
+
+[node name="i_directory_removeall" type="Button" parent="Input"]
+layout_mode = 2
+text = "Remove All"
+
+[node name="i_directory_list" type="ScrollContainer" parent="Input"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="directory_list_container" type="VBoxContainer" parent="Input/i_directory_list"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Settings" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Resize" type="HBoxContainer" parent="Settings"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="size_input" type="LineEdit" parent="Settings/Resize"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Resize Percentage (ex: 50 = 50%)"
+
+[node name="size_value" type="Label" parent="Settings/Resize"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Current Size Ratio: 100%"
+
+[node name="size_checkbox" type="CheckBox" parent="Settings/Resize"]
+layout_mode = 2
+text = "Enable Resizing?"
+
+[node name="folder_name" type="CheckBox" parent="Settings"]
+layout_mode = 2
+text = "Use Folder Name for Output?"
+alignment = 1
+
+[node name="Output" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="o_directory_input" type="LineEdit" parent="Output"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Enter Output Directory Here"
+
+[node name="o_directory_set" type="Button" parent="Output"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Set Directory"
+
+[node name="o_directory_info" type="VBoxContainer" parent="Output"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="label" type="Label" parent="Output/o_directory_info"]
+layout_mode = 2
+text = "Current Output Directory:"
+autowrap_mode = 1
+
+[node name="o_directory_label" type="Label" parent="Output/o_directory_info"]
+layout_mode = 2
+autowrap_mode = 1
+
+[node name="Finalize" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="finalize_button" type="Button" parent="Finalize"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Finalize!"

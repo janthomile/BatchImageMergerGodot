@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bdkx2nviqlyb5"]
+[gd_scene load_steps=3 format=3 uid="uid://bdkx2nviqlyb5"]
 
 [ext_resource type="Script" path="res://main_ui.gd" id="1_riunf"]
+[ext_resource type="PackedScene" uid="uid://frnonb6tduk7" path="res://batch_image_merger.tscn" id="2_eljdm"]
 
 [node name="main" type="CanvasLayer"]
 script = ExtResource("1_riunf")
@@ -12,95 +13,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ImageConverter" type="VBoxContainer" parent="tabs"]
+[node name="BatchImageMerger" parent="tabs" instance=ExtResource("2_eljdm")]
 layout_mode = 2
-
-[node name="Input" type="HBoxContainer" parent="tabs/ImageConverter"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="i_directory_input" type="TextEdit" parent="tabs/ImageConverter/Input"]
-layout_mode = 2
-size_flags_horizontal = 3
-placeholder_text = "Enter Input Directories Here, Separated by New Lines"
-wrap_mode = 1
-
-[node name="i_directory_accept" type="Button" parent="tabs/ImageConverter/Input"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Add Directory"
-
-[node name="i_directory_removeall" type="Button" parent="tabs/ImageConverter/Input"]
-layout_mode = 2
-text = "Remove All"
-
-[node name="i_directory_list" type="ScrollContainer" parent="tabs/ImageConverter/Input"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="directory_list_container" type="VBoxContainer" parent="tabs/ImageConverter/Input/i_directory_list"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Settings" type="HBoxContainer" parent="tabs/ImageConverter"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Resize" type="HBoxContainer" parent="tabs/ImageConverter/Settings"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="size_input" type="LineEdit" parent="tabs/ImageConverter/Settings/Resize"]
-layout_mode = 2
-size_flags_horizontal = 3
-placeholder_text = "Resize Percentage (ex: 50 = 50%)"
-
-[node name="size_value" type="Label" parent="tabs/ImageConverter/Settings/Resize"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Current Size Ratio: 100%"
-
-[node name="size_checkbox" type="CheckBox" parent="tabs/ImageConverter/Settings/Resize"]
-layout_mode = 2
-text = "Enable Resizing?"
-
-[node name="folder_name" type="CheckBox" parent="tabs/ImageConverter/Settings"]
-layout_mode = 2
-text = "Use Folder Name for Output?"
-alignment = 1
-
-[node name="Output" type="HBoxContainer" parent="tabs/ImageConverter"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="o_directory_input" type="LineEdit" parent="tabs/ImageConverter/Output"]
-layout_mode = 2
-size_flags_horizontal = 3
-placeholder_text = "Enter Output Directory Here"
-
-[node name="o_directory_set" type="Button" parent="tabs/ImageConverter/Output"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Set Directory"
-
-[node name="o_directory_info" type="VBoxContainer" parent="tabs/ImageConverter/Output"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="label" type="Label" parent="tabs/ImageConverter/Output/o_directory_info"]
-layout_mode = 2
-text = "Current Output Directory:"
-autowrap_mode = 1
-
-[node name="o_directory_label" type="Label" parent="tabs/ImageConverter/Output/o_directory_info"]
-layout_mode = 2
-autowrap_mode = 1
-
-[node name="Finalize" type="HBoxContainer" parent="tabs/ImageConverter"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="finalize_button" type="Button" parent="tabs/ImageConverter/Finalize"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Finalize!"
