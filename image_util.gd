@@ -27,7 +27,6 @@ func is_valid_image(_path : String):
 func get_valid_dir(_dir : String, _file : String):
 	var valid = _dir + "/" + _file
 	valid = valid.replace("\\", "/")
-#	valid = valid.validate_filename()
 	return valid
 
 func get_aggregate_dimensions(images : Array[Image]):
